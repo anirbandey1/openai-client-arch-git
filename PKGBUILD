@@ -75,7 +75,7 @@ package() {
   # Convert python source code to executable using pyinstaller
 
   cd "${srcdir}"
-  pyinstaller "${srcdir}/openai-client/main.py"
+  pyinstaller "${srcdir}/openai-client/src/main.py"
 
   cp -r "${srcdir}/dist/main" "${pkgdir}/opt/openai-client/binaries"
 
