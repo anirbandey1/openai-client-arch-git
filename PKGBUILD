@@ -67,15 +67,17 @@ package() {
 
   source "${srcdir}/.venvs/openai-client-venv/bin/activate"
   pip install --upgrade pip
-  pip install --upgrade PySide6
-  pip install --upgrade openai
-  pip install --upgrade pyinstaller
+
+  pip install --upgrade -r "${srcdir}/openai-client/requirements.txt"
+  # pip install --upgrade PySide6
+  # pip install --upgrade openai
+  # pip install --upgrade pyinstaller
 
 
   # Convert python source code to executable using pyinstaller
 
   cd "${srcdir}"
-  pyinstaller "${srcdir}/openai-client/src/main.py"
+  pyinstaller "${srcdir}/openai-client/main.py"
 
   cp -r "${srcdir}/dist/main" "${pkgdir}/opt/openai-client/binaries"
 
